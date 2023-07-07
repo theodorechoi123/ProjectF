@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
-            bulletController.hit = true;
+            bulletController.hit = false;
         }
     }
 
