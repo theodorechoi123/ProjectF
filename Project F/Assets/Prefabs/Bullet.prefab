@@ -110,3 +110,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDecal: {fileID: 6503971332871084695, guid: 7438ca74eba2f7f4fa40eab0ef6720f1, type: 3}
+  speed: 200
