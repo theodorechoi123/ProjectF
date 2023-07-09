@@ -10,6 +10,8 @@ public class SwitchVCam : MonoBehaviour
     private PlayerInput playerInput;
     [SerializeField]
     private int priorityBoostAmount = 10;
+    [SerializeField]
+    private Animator animator;
     private CinemachineVirtualCamera virtualCamera;
     private InputAction aimAction;
 
@@ -35,10 +37,13 @@ public class SwitchVCam : MonoBehaviour
     private void StartAim()
     {
         virtualCamera.Priority += priorityBoostAmount;
+        animator.SetLayerWeight(1, 1f);
     }
 
     private void CancelAim()
     {
         virtualCamera.Priority -= priorityBoostAmount;
+        animator.SetLayerWeight(1, 0);
+
     }
 }
