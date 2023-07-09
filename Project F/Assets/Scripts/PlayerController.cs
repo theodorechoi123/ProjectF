@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private Transform bulletParent;
     [SerializeField]
     private float bulletHitMissDistance = 25f;
+    [SerializeField]
+    private Animator animator;
 
     private CharacterController controller;
     private PlayerInput playerInput;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
         shootAction = playerInput.actions["Shoot"];
+
     }
 
     private void OnEnable()
@@ -88,6 +91,9 @@ public class PlayerController : MonoBehaviour
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized;
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
+
+        animator.SetFloat("inputX", input.x, 0.1f, Time.deltaTime);
+        animator.SetFloat("inputY", input.y, 0.1f, Time.deltaTime);
 
         // Changes the height position of the player..
         if (jumpAction.triggered && groundedPlayer)
