@@ -43,3 +43,5 @@ Assets/StreamingAssets/crashlytics-build.properties
 *.log
 *.log
 Project F/Logs/shadercompiler-UnityShaderCompiler.exe1.log
+*.fbx
+*.prefab
