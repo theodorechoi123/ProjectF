@@ -14,6 +14,8 @@ public class SwitchVCam : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private PlayerController playerController;
+    [SerializeField]
+    private GameObject gunModel;
     private CinemachineVirtualCamera virtualCamera;
     private InputAction aimAction;
 
@@ -44,6 +46,7 @@ public class SwitchVCam : MonoBehaviour
         animator.SetLayerWeight(1, 1f);
 
         playerController.canShoot = true;
+        gunModel.SetActive(true);
     }
 
     private void CancelAim()
@@ -54,6 +57,7 @@ public class SwitchVCam : MonoBehaviour
         animator.SetLayerWeight(1, 0f);
 
         playerController.canShoot = false;
+        gunModel.SetActive(false);
     }
 
 
