@@ -37,13 +37,17 @@ public class SwitchVCam : MonoBehaviour
     private void StartAim()
     {
         virtualCamera.Priority += priorityBoostAmount;
+        // float currentLayerWeight = animator.GetLayerWeight(1);
+        // float layerWeight = Mathf.Lerp(currentLayerWeight, 1f, Time.deltaTime * 10);
         animator.SetLayerWeight(1, 1f);
     }
 
     private void CancelAim()
     {
         virtualCamera.Priority -= priorityBoostAmount;
-        animator.SetLayerWeight(1, 0);
+        // float currentLayerWeight = animator.GetLayerWeight(1);
+        // float layerWeight = Mathf.Lerp(currentLayerWeight, 0f, Time.deltaTime * 10);
+        animator.SetLayerWeight(1, 0f);
 
     }
 }
