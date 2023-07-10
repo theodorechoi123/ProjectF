@@ -12,6 +12,8 @@ public class SwitchVCam : MonoBehaviour
     private int priorityBoostAmount = 10;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private PlayerController playerController;
     private CinemachineVirtualCamera virtualCamera;
     private InputAction aimAction;
 
@@ -40,6 +42,8 @@ public class SwitchVCam : MonoBehaviour
         // float currentLayerWeight = animator.GetLayerWeight(1);
         // float layerWeight = Mathf.Lerp(currentLayerWeight, 1f, Time.deltaTime * 10);
         animator.SetLayerWeight(1, 1f);
+
+        playerController.canShoot = true;
     }
 
     private void CancelAim()
@@ -49,5 +53,8 @@ public class SwitchVCam : MonoBehaviour
         // float layerWeight = Mathf.Lerp(currentLayerWeight, 0f, Time.deltaTime * 10);
         animator.SetLayerWeight(1, 0f);
 
+        playerController.canShoot = false;
     }
+
+
 }
