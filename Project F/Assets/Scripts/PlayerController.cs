@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     void Update()
     {
         //checks to see if player is grounded
@@ -100,9 +101,10 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("inputY", input.y, 0.1f, Time.deltaTime);
 
         // Changes the height position of the player..
-        if (jumpAction.triggered && groundedPlayer)
+        if (jumpAction.triggered && groundedPlayer && !canShoot)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            animator.SetTrigger("jump");
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
